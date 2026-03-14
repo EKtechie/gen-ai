@@ -5,3 +5,4 @@ __pycache__/
 *.pyc
 book_db/
 *.ipynb
+.ipynb_checkpoints/
