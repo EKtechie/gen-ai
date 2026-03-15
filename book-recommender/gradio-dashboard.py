@@ -43,13 +43,13 @@ def retrieve_semantic_recommendation(
 ) -> pd.DataFrame:
     recs = db_books.similarity_search(query, k=initial_top_k)
     books_list = [int(re.search(r'\d+', rec.page_content.split()[0]).group()) for rec in recs]
-    book_recs = books[books["isbn13"].isin(books_list)].head(final_top_k)
+    book_recs = books[books["isbn13"].isin(books_list)]
 
     if category != "All":
-        book_recs = book_recs[book_recs["simple_categories"] == category].head(final_top_k)
-    else:
-        book_recs = book_recs.head(final_top_k)
+        book_recs = book_recs[book_recs["simple_categories"] == category]
 
+    book_recs = book_recs.head(final_top_k)
+    
     if tone == "Happy":
         book_recs.sort_values(by="joy", ascending=False, inplace=True)
     elif tone == "Surprising":
