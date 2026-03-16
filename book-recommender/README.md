@@ -48,8 +48,8 @@ You can run this project locally using a virtual environment or via Docker.
 
 1. **Clone the repository:**
    ```bash
-   git clone [https://github.com/](https://github.com/)[YourUsername]/[YourRepoName].git
-   cd [YourRepoName]
+   git clone [https://github.com/](https://github.com/)[EKtechie]/[gen-ai].git
+   cd [book-recommender]
    ```
 
 2. **Create and activate a virtual environment:**
@@ -89,7 +89,7 @@ You can run this project locally using a virtual environment or via Docker.
 ---
 
 ## 👨‍💻 Author
-**[Eswarakumar J]**
+**Eswarakumar J**
 * [LinkedIn](https://www.linkedin.com/in/eswarakumar-j)
 * [GitHub](https://github.com/EKtechie)
 * [Portfolio/Website](https://eswarakumar-portfolio.netlify.app)
