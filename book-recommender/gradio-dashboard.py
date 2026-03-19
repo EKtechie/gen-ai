@@ -26,7 +26,7 @@ books["large_thumbnail"] = np.where(
 # ── Load embeddings and vector store ────────────────────────────────────────
 embeddings = GoogleGenerativeAIEmbeddings(
     model="models/gemini-embedding-001",
-    google_api_key=os.getenv("GOOGLE_API_KEY")
+    google_api_key=os.getenv("VERTEX_AI_API_KEY")  # changed from GOOGLE_API_KEY
 )
 
 # Load pre-built DB — do NOT rebuild on every startup
@@ -89,7 +89,7 @@ def recommend_book(query: str, category: str, tone: str):
 categories = ["All"] + sorted(books["simple_categories"].unique())
 tones = ["All", "Happy", "Surprising", "Angry", "Suspenseful", "Sad"]
 
-with gr.Blocks(theme=gr.themes.Glass()) as dashboard:
+with gr.Blocks() as dashboard:
     gr.Markdown("Book Recommendations")
     with gr.Row():
         user_query = gr.Textbox(
@@ -109,4 +109,4 @@ with gr.Blocks(theme=gr.themes.Glass()) as dashboard:
     )
 
 if __name__ == "__main__":
-    dashboard.launch(server_name="0.0.0.0", server_port=7860)
+    dashboard.launch(server_name="0.0.0.0", server_port=7860, theme=gr.themes.Glass())
